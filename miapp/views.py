@@ -1,29 +1,12 @@
 from django.shortcuts import render, HttpResponse, redirect
 
-layout = """
-    <h1> Proyecto Web (LP3 - 2024) | EDISON GERMAN AMES MEDINA </h1>
-    <hr/>
-    <ul>
-        <li>
-            <a href="/inicio"> Inicio</a>
-        </li>
-        <li>
-            <a href="/saludo"> Mensaje de Saludo</a>
-        </li>
-        <li>
-            <a href="/rango"> Mostrar Números [a,b]</a>
-        </li>
-        <li>
-            <a href="/rango2/10/15"> Mostrar Números [10,15]</a>
-        </li>
-    </ul>
-    <hr/>
-"""
+
+ 
 def index(request):
-    mensaje="""
-        <h1>Inicio</h1>
-    """
-    return HttpResponse(layout + mensaje)
+    return render(request,'index.html', {
+        'titulo':'Inicio',
+        'mensaje':'Proyecto web con DJango (Desde el View)'
+    })
 
 def saludo(request):
     return render(request,'saludo.html')
